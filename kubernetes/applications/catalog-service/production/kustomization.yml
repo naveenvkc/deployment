@@ -18,8 +18,8 @@ configMapGenerator:
 images:
 - name: catalog-service
   newName: ghcr.io/naveenvkc/catalog-service
-  newTag: dfb9a22de42e80d678816c072b9c8ed75e8f6566
+  newTag: c7a3ad1c401ca8dc2d9b275dc06304a4e24f6962
   
 replicas:
-- name: catalog-service
-  count: 2
+- count: 2
+  name: catalog-service
