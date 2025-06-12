@@ -78,10 +78,10 @@ services:
 
   edge-service:
     depends_on:
-      - fluent-bit
+      #- fluent-bit
       - polar-redis
       - polar-keycloak
-      - tempo 
+      #- tempo 
     image: "edge-service" 
     container_name: "edge-service"
     ports:

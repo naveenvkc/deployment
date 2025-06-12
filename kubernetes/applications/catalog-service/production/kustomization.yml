@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- github.com/naveenvkc/catalog-service/k8s?ref=dfb9a22de42e80d678816c072b9c8ed75e8f6566
+
+patches:
+- path: patch-env.yml
+- path: patch-resources.yml
+- path: patch-volumes.yml
+
+configMapGenerator:
+- behavior: merge
+  files:
+  - application-prod.yml
+  name: catalog-config
+  
+images:
+- name: catalog-service
+  newName: ghcr.io/naveenvkc/catalog-service
+  newTag: dfb9a22de42e80d678816c072b9c8ed75e8f6566
+  
+replicas:
+- name: catalog-service
+  count: 2
